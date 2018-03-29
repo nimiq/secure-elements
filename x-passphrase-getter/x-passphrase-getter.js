@@ -1,13 +1,13 @@
-import XPasswordInput from '../x-password-input/x-password-input.js';
-import XPasswordIndicator from '../x-password-indicator/x-password-indicator.js';
+import XPassphraseInput from '../x-passphrase-input/x-passphrase-input.js';
+import XPassphraseIndicator from '../x-passphrase-indicator/x-passphrase-indicator.js';
 import XElement from '/libraries/x-element/x-element.js';
 
-export default class XPasswordGetter extends XElement {
+export default class XPassphraseGetter extends XElement {
     html() {
         const { buttonLabel } = this.attributes;
 
         return `
-            <x-password-input></x-password-input>
+            <x-passphrase-input></x-passphrase-input>
             <x-grow></x-grow>
             <button>${ buttonLabel || 'Confirm' }</button>
         `;
@@ -20,30 +20,30 @@ export default class XPasswordGetter extends XElement {
     }
 
     children() {
-        return [ XPasswordInput, XPasswordIndicator];
+        return [ XPassphraseInput, XPassphraseIndicator];
     }
 
     listeners() {
         return {
-            'click button': e => this._onPasswordSubmit(),
-            'keydown input': (d, e) => { if (e.keyCode == 13) this._onPasswordSubmit() }
+            'click button': e => this._onPassphraseSubmit(),
+            'keydown input': (d, e) => { if (e.keyCode == 13) this._onPassphraseSubmit() }
         }
     }
 
     focus() {
-        this.$passwordInput.focus();
+        this.$passphraseInput.focus();
     }
 
     wrongPassphrase() {
-        this.$passwordInput.setInvalid();
+        this.$passphraseInput.setInvalid();
     }
 
 
     get value() {
-        return this.$passwordInput.value;
+        return this.$passphraseInput.value;
     }
 
-    _onPasswordSubmit() {
+    _onPassphraseSubmit() {
         this.fire(this.__tagName + '-submitted', this.value);
     }
 }

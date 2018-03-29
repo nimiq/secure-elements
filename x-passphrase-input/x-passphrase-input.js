@@ -1,6 +1,6 @@
 import XInput from '../x-input/x-input.js';
 
-export default class XPasswordInput extends XInput {
+export default class XPassphraseInput extends XInput {
     html() {
         const { placeholder } = this.attributes;
 

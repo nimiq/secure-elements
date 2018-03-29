@@ -1,6 +1,6 @@
 import XElement from '../../libraries/x-element/x-element.js';
 
-export default class XPasswordIndicator extends XElement {
+export default class XPassphraseIndicator extends XElement {
     html() {
         return `
             <div class="label">Strength:</div>
