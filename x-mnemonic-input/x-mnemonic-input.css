@@ -1,6 +1,5 @@
 @import '../x-mnemonic-phrase/x-recovery-phrase.css';
 @import '../x-input/x-input.css';
-@import '../../elements/x-success-mark/x-success-mark.css';
 
 x-mnemonic-input {
     text-align: center;

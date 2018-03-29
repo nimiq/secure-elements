@@ -6,14 +6,14 @@ import XToast from "/secure-elements/x-toast/x-toast.js";
 export default class XAccountBackupImport extends XElement {
     html() {
         return `
-            <x-wallet-backup-import-icon></x-wallet-backup-import-icon>
+            <x-account-backup-import-icon></x-account-backup-import-icon>
             <button>Select file</button>
             <input type="file" accept="image/*">`
     }
 
     onCreate() {
         this.$fileInput = this.$('input');
-        this.$importIcon = this.$('x-wallet-backup-import-icon');
+        this.$importIcon = this.$('x-account-backup-import-icon');
         this.$button = this.$('button');
     }
 
