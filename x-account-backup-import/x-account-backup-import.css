@@ -1,4 +1,4 @@
-@import "../../elements/x-toast/x-toast.css";
+@import "../x-toast/x-toast.css";
 @import "../../elements/x-success-mark/x-success-mark.css";
 
 x-wallet-backup-import {

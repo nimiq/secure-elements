@@ -1,6 +1,5 @@
 import XElement from '/libraries/x-element/x-element.js';
 import MnemonicPhrase from '/libraries/mnemonic-phrase/mnemonic-phrase.min.js';
-import XSuccessMark from '../../elements/x-success-mark/x-success-mark.js';
 import XMnemonicInputField from './x-mnemonic-input-field.js';
 
 export default class XMnemonicInput extends XElement {
@@ -8,12 +7,9 @@ export default class XMnemonicInput extends XElement {
         return `
             <form autocomplete="off"></form>
             <x-mnemonic-input-success>
-                <x-success-mark></x-success-mark>
                 <h2>Account Recovered</h2>
-            <x-mnemonic-input-success>`;
+            </x-mnemonic-input-success>`;
     }
-
-    children() { return [XSuccessMark] }
 
     styles() { return ['x-recovery-phrase'] }
 

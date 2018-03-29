@@ -1,4 +1,4 @@
-@import '../../elements/x-toast/x-toast.css';
+@import '../x-toast/x-toast.css';
 
 x-downloadable-image {
     display: inline-block;

@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link href="/libraries/nimiq-style/nimiq-style.css" rel="stylesheet">
     <link href="../x-passphrase-indicator.css" rel="stylesheet">
-    <link href="/elements/x-toast/x-toast.css" rel="stylesheet">
+    <link href="/secure-elements/x-toast/x-toast.css" rel="stylesheet">
 </head>
 
 <body>
     <x-passphrase-indicator></x-passphrase-indicator>
     <script type="module">
         import XPassphraseIndicator from "../x-passphrase-indicator.js";
-        import XToast from "../../../elements/x-toast/x-toast.js";
+        import XToast from "../../x-toast/x-toast.js";
         const $indicator = new XPassphraseIndicator();
         $indicator.addEventListener('x-passphrase-indicator', e => XToast.show(`${e.type}: ${e.detail}`));
     </script>

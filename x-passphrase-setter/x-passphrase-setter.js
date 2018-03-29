@@ -26,9 +26,9 @@ export default class XPassphraseSetter extends XElement {
 
     listeners() {
         return {
-            'x-passphrase-input-change': value => this._onPasswordUpdate(value),
-            'click button': e => this._onPasswordSubmit(),
-            'keydown input': (d, e) => { if (e.keyCode == 13) this._onPasswordSubmit() }
+            'x-passphrase-input-change': value => this._onPassphraseUpdate(value),
+            'click button': e => this._onPassphraseSubmit(),
+            'keydown input': (d, e) => { if (e.keyCode == 13) this._onPassphraseSubmit() }
         }
     }
 
@@ -40,9 +40,9 @@ export default class XPassphraseSetter extends XElement {
         return this.$passphraseInput.value;
     }
 
-    _onPasswordUpdate(password) {
-        const strength = this._getPasswordStrength(password);
-        this.$passwordIndicator.setStrength(strength);
+    _onPassphraseUpdate(passphrase) {
+        const strength = this._getPassphraseStrength(passphrase);
+        this.$passphraseIndicator.setStrength(strength);
         if (strength < 3) {
             this.$button.setAttribute('disabled', 'disabled');
         } else {
@@ -50,17 +50,17 @@ export default class XPassphraseSetter extends XElement {
         }
     }
 
-    _onPasswordSubmit() {
+    _onPassphraseSubmit() {
         this.fire(this.__tagName + '-submitted', this.value);
     }
 
-    /** @param {string} password
+    /** @param {string} passphrase
      * @return {number} */
-    _getPasswordStrength(password) {
-        if (password.length === 0) return 0;
-        if (password.length < 7) return 1;
-        if (password.length < 10) return 2;
-        if (password.length < 14) return 3;
+    _getPassphraseStrength(passphrase) {
+        if (passphrase.length === 0) return 0;
+        if (passphrase.length < 7) return 1;
+        if (passphrase.length < 10) return 2;
+        if (passphrase.length < 14) return 3;
         return 4;
     }
 }

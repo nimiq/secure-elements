@@ -1,7 +1,7 @@
 import XElement from "/libraries/x-element/x-element.js";
 import QrScanner from "/libraries/qr-scanner/qr-scanner.min.js";
 import WalletBackup from "/libraries/backup-file/backup-file.js";
-import XToast from "../../elements/x-toast/x-toast.js";
+import XToast from "/secure-elements/x-toast/x-toast.js";
 
 export default class XAccountBackupImport extends XElement {
     html() {
