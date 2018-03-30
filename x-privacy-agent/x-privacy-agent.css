@@ -5,7 +5,7 @@ x-privacy-agent {
     width: 100%;
     max-width: 368px;
     flex-grow: 1;
-    height: 100%;
+    /* height: 100%; */
     margin-top:  16px;
 }
 

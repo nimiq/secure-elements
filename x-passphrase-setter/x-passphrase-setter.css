@@ -1,7 +1,8 @@
 @import '../x-passphrase-input/x-passphrase-input.css';
 @import '../x-passphrase-indicator/x-passphrase-indicator.css';
 
-x-passphrase-setter {
+x-passphrase-setter,
+x-passphrase-getter {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -10,28 +11,34 @@ x-passphrase-setter {
 	flex-grow: 1;
 }
 
-x-passphrase-setter div[buttons] {
+x-passphrase-setter div[buttons],
+x-passphrase-getter div[buttons] {
 	position: relative;
 }
 
-x-passphrase-setter div[buttons] > * {
+x-passphrase-setter div[buttons] > *,
+x-passphrase-getter div[buttons] > * {
 	position: absolute;
 	top: 0;
 }
 
-x-passphrase-setter [wrong][disabled] {
+x-passphrase-setter [wrong][disabled],
+x-passphrase-getter [wrong][disabled] {
 	background: var(--error-color);
 	color: white;
 }
 
-x-passphrase-setter:not(.wrong) [wrong] {
+x-passphrase-setter:not(.wrong) [wrong],
+x-passphrase-getter:not(.wrong) [wrong] {
 	display: none;
 }
 
-x-passphrase-setter button {
+x-passphrase-setter button,
+x-passphrase-getter button {
 	transition: opacity 300ms;
 }
 
-x-passphrase-setter.wrong button {
+x-passphrase-setter.wrong button,
+x-passphrase-getter.wrong button {
 	opacity: 0;
 }
