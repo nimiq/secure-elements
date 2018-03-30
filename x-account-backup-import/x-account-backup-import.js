@@ -68,7 +68,7 @@ export default class XAccountBackupImport extends XElement {
 
     _onQrError() {
         this.animate('shake', this.$importIcon);
-        XToast.show('Couldn\'t read Backup File');
+        XToast.error('Couldn\'t read Backup File');
     }
 
     _stopPropagation(event) {
