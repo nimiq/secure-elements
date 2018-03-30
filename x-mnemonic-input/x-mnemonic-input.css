@@ -20,20 +20,6 @@ x-mnemonic-input>form {
     will-change: transform, opacity;
 }
 
-x-mnemonic-input.recovered {
-    background: none;
-    border: none;
-}
-
-x-mnemonic-input.recovered:before {
-    opacity: 0;
-}
-
-x-mnemonic-input.recovered>form {
-    transform: scale(0);
-    opacity: 0;
-}
-
 x-mnemonic-input-field {
     flex: 1 0 20%;
     margin: 2px;
@@ -78,11 +64,6 @@ x-mnemonic-input-success {
     transition: transform 0.8s ease, opacity 0.5s ease;
     will-change: transform, opacity;
     transition-delay: 300ms;
-}
-
-.recovered x-mnemonic-input-success {
-    opacity: 1;
-    transform: scale(1);
 }
 
 datalist {

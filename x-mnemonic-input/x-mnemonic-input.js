@@ -6,9 +6,7 @@ export default class XMnemonicInput extends XElement {
     html() {
         return `
             <form autocomplete="off"></form>
-            <x-mnemonic-input-success>
-                <h2>Account Recovered</h2>
-            </x-mnemonic-input-success>`;
+            <x-mnemonic-input-success></x-mnemonic-input-success>`;
     }
 
     styles() { return ['x-recovery-phrase'] }
@@ -76,16 +74,10 @@ export default class XMnemonicInput extends XElement {
         try {
             const privateKey = MnemonicPhrase.mnemonicToKey(mnemonic);
             this.fire(this.__tagName, privateKey);
-            this._animateSuccess();
         } catch (e) {
             console.log(e.message);
             this._animateError();
         }
-    }
-
-    _animateSuccess() {
-        this.$el.classList.add('recovered');
-        setTimeout(() => this.$successMark.animate(), 300);
     }
 
     _animateError() {
