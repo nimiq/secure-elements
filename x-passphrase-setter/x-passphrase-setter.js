@@ -40,6 +40,10 @@ export default class XPassphraseSetter extends XElement {
         return this.$passphraseInput.value;
     }
 
+    clear() {
+        this.$passphraseInput.value = '';
+    }
+
     _onPassphraseUpdate(passphrase) {
         const strength = this._getPassphraseStrength(passphrase);
         this.$passphraseIndicator.setStrength(strength);
