@@ -9,6 +9,7 @@ x-passphrase-getter {
 	width: 100%;
 	max-width: var(--max-width);
 	flex-grow: 1;
+	text-align: center;
 }
 
 x-passphrase-setter div[buttons],

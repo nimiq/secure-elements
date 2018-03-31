@@ -6,6 +6,7 @@ export default class XValidateWords extends XElement {
         return `
             <h1>Validate Recovery Words</h1>
             <p>Please select the following word from your list:</p>
+            <x-grow></x-grow>
             <x-target-index></x-target-index>
             <x-wordlist>
                 <button class="small"></button>
@@ -17,6 +18,7 @@ export default class XValidateWords extends XElement {
                 <button class="small"></button>
                 <button class="small"></button>
             </x-wordlist>
+            <x-grow></x-grow>
             <a secondary x-href="/create-safe/words">Back to words</a>
         `
     }
