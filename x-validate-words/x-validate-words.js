@@ -17,7 +17,7 @@ export default class XValidateWords extends XElement {
                 <button class="small"></button>
                 <button class="small"></button>
             </x-wordlist>
-            <a secondary x-href="/create/words">Back to words</a>
+            <a secondary x-href="/create-safe/words">Back to words</a>
         `
     }
 
