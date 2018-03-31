@@ -1,0 +1,56 @@
+@import '/secure-elements/x-privacy-agent/x-privacy-agent.css';
+
+/* todo fix workaround and make mixin-like styles work again */
+
+x-validate-words-connected {
+    width: 100%;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 15px;
+    line-height: 32px;
+    flex-grow: 1;
+}
+
+x-validate-words-connected p {
+    margin-bottom: 32px;
+}
+
+x-validate-words-connected x-target-index {
+    display: block;
+    font-size: 64px;
+    line-height: 80px;
+    margin-bottom: 42px;
+    font-weight: 200;
+}
+
+x-validate-words-connected x-target-index::before {
+    content: '#';
+    font-size: 52px;
+}
+
+x-validate-words-connected button {
+    margin: 4px;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+x-validate-words-connected button.correct {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: var(--secondary-text-color);
+}
+
+x-validate-words-connected button.wrong {
+    background-color: var(--error-color);
+    border-color: var(--error-color);
+    color: var(--secondary-cta-color);
+}
+
+x-wordlist {
+    display: block;
+    height: 180px;
+    max-width: 368px;
+    margin: 0 auto;
+}

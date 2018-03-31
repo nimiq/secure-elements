@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="../x-validate-words.css" rel="stylesheet">
+    <link href="/libraries/nimiq-style/nimiq-style.css" rel="stylesheet">
+</head>
+
+<body>
+<x-validate-words></x-validate-words>
+<script type="module">
+    import XValidateWords from '../x-validate-words.js';
+    import MnemonicPhrase from '/libraries/mnemonic-phrase/mnemonic-phrase.min.js';
+
+    const $element = new XValidateWords();
+
+    const randomKey = window.crypto.getRandomValues(new Uint8Array(32));
+    $element.privateKey = MnemonicPhrase._arrayToHex(randomKey);
+
+    $element.addEventListener('x-validate-words', () => {
+        console.log('Event "validated" fired');
+    });
+
+    $element.onEntry();
+</script>
+</body>
+
+</html>
