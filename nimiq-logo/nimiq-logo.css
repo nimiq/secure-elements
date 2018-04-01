@@ -38,3 +38,12 @@ nimiq-logo[large] {
 nimiq-logo[large]:empty:after {
     content: 'Welcome To Nimiq';
 }
+
+nimiq-logo sup {
+    font-size: 10px;
+    letter-spacing: 1px;
+    vertical-align: baseline;
+    position: relative;
+    top: -8px;
+    left: 1px;
+}
