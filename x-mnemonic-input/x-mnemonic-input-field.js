@@ -22,7 +22,7 @@ export default class XMnemonicInputField extends XInput {
         if (!['keydown', 'input', 'blur'].includes(e.type)) return;
         if (e.keyCode === 32 /* space */ ) e.preventDefault();
         const triggerKeyCodes = [32 /* space */, 9 /* tab */, 13 /* enter */];
-        if (triggerKeyCodes.includes(e.keyCode) || e.type === 'blur' || (e.type === 'input' && typeof e.data === 'undefined')) {
+        if (triggerKeyCodes.includes(e.keyCode) || e.type === 'blur' || (e.type === 'input' && typeof e.data === 'undefined' && e.composed === false)) {
             if (this.value.length >= 3) this._notifyValidity();
         }
         this._onValueChanged();
