@@ -47,12 +47,12 @@ export default class XPinpad extends XElement {
         this._unlocking = false;
     }
 
-    show() {
+    open() {
         this.reset();
         KeyboardHandler.setGlobalListener(this._handleKeyboardInput);
     }
 
-    hide() {
+    close() {
         KeyboardHandler.removeGlobalListener();
         this.reset();
     }
