@@ -20,6 +20,7 @@ export default class XMnemonicInput extends XElement {
         else this.$fields.forEach(field => field.setupAutocomplete());
         this.addEventListener('x-mnemonic-input-field-valid', e => this._onFieldComplete(e));
         this._mnemonic = '';
+        setTimeout(e => this.$('input').focus(), 100);
     }
 
     _createField(index) {
