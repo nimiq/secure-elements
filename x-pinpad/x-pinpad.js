@@ -57,10 +57,6 @@ export default class XPinpad extends XElement {
         this.reset();
     }
 
-    setLabel(label) {
-        this.$('x-pin-label').textContent = label;
-    }
-
     get unlocking() {
         return this._unlocking;
     }
