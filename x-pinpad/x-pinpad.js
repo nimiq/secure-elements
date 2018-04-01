@@ -6,8 +6,6 @@ export default class XPinpad extends XElement {
 
     html() {
         return `
-            <x-pin-label>
-            </x-pin-label>
             <x-pin>
                 <x-dot></x-dot>
                 <x-dot></x-dot>
