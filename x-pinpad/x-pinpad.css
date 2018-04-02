@@ -21,6 +21,10 @@ x-pinpad-container button {
     font-weight: 300;
 }
 
+x-pinpad-container button:active {
+    background: rgba(255, 255, 255, 0.5);
+}
+
 x-pin {
     display: flex;
     width: 300px;
