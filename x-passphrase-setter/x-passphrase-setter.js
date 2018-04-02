@@ -17,7 +17,6 @@ export default class XPassphraseSetter extends XElement {
 
     onCreate() {
         this.$button = this.$('button');
-        // TODO is it correct to disable autocompletion and force users to re-enter password?
         this.$('input').setAttribute('autocomplete', 'new-password');
     }
 
@@ -45,18 +44,24 @@ export default class XPassphraseSetter extends XElement {
         this.$passphraseInput.value = '';
     }
 
+    _passphraseIsValid(passphrase) {
+        return this._getPassphraseStrength(passphrase) >= 3;
+    }
+
     _onPassphraseUpdate(passphrase) {
         const strength = this._getPassphraseStrength(passphrase);
         this.$passphraseIndicator.setStrength(strength);
-        if (strength < 3) {
-            this.$button.setAttribute('disabled', 'disabled');
-        } else {
+        if (this._passphraseIsValid(passphrase)) {
             this.$button.removeAttribute('disabled');
+        } else {
+            this.$button.setAttribute('disabled', 'disabled');
         }
     }
 
     _onPassphraseSubmit() {
-        this.fire(this.__tagName + '-submitted', this.value);
+        if (this._passphraseIsValid (this.value)) {
+            this.fire(this.__tagName + '-submitted', this.value);
+        }
     }
 
     /** @param {string} passphrase
