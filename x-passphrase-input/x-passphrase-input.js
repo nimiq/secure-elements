@@ -6,7 +6,7 @@ export default class XPassphraseInput extends XInput {
 
         return `
             <form action="/">
-                <input class="password" type="password" placeholder="${ placeholder || 'Enter Passphrase' }">
+                <input class="password" type="password" placeholder="${ placeholder || 'Enter Pass Phrase' }">
                 <span id="eye" icon-eye />
             </form>
         `;

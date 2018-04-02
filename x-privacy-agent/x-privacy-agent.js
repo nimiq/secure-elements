@@ -20,7 +20,7 @@ export default class XPrivacyAgent extends XElement {
 				<p>Now is the perfect time to assess your surroundings. Nearby windows? Hidden cameras? Shoulder spies?</p><p><strong>Anyone with the following information can steal all your funds!</strong></p>
 			</x-privacy-agent-container>
 			<x-grow></x-grow>
-			<button>I am safe</button>
+			<button>OK, all good</button>
 		`
     }
     onCreate() {

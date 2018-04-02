@@ -31,3 +31,7 @@ x-passphrase-indicator meter[value="10"]::-moz-meter-bar { background: var(--err
 x-passphrase-indicator meter[value="70"]::-moz-meter-bar { background: var(--warning-color); }
 x-passphrase-indicator meter[value="100"]::-moz-meter-bar,
 x-passphrase-indicator meter[value="130"]::-moz-meter-bar { background: var(--success-color); }
+
+x-passphrase-indicator i:hover {
+    cursor: pointer;
+}

@@ -7,7 +7,7 @@ export default class XPassphraseSetter extends XElement {
         const { buttonLabel } = this.attributes;
 
         return `
-            <h2>Enter your passphrase:</h2>
+            <h2>Choose your Pass Phrase:</h2>
             <x-passphrase-input></x-passphrase-input>
             <x-passphrase-indicator></x-passphrase-indicator>
             <x-grow></x-grow>
