@@ -1,7 +1,8 @@
 nimiq-logo {
     width: 264px;
     height: 30px;
-    display: block;
+    display: inline-flex;
+    align-items: center;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     line-height: 28px;
