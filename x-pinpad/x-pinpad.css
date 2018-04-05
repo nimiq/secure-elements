@@ -15,6 +15,7 @@ x-pinpad-container button {
     margin: 12px;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-user-select: none;
+    outline: none !important;
     font-size: 32px;
     color: white;
     letter-spacing: 0;
