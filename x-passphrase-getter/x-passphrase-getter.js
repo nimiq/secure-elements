@@ -1,5 +1,4 @@
 import XPassphraseInput from '../x-passphrase-input/x-passphrase-input.js';
-import XPassphraseIndicator from '../x-passphrase-indicator/x-passphrase-indicator.js';
 import XElement from '/libraries/x-element/x-element.js';
 
 export default class XPassphraseGetter extends XElement {
@@ -20,7 +19,7 @@ export default class XPassphraseGetter extends XElement {
     }
 
     children() {
-        return [ XPassphraseInput, XPassphraseIndicator];
+        return [ XPassphraseInput ];
     }
 
     listeners() {
