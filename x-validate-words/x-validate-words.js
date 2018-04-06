@@ -144,3 +144,4 @@ export default class XValidateWords extends XElement {
         $el.classList.add('correct');
     }
 }
+

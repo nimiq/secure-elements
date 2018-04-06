@@ -15,24 +15,37 @@ export default class XMnemonicPhrase extends XElement {
         const phrase = MnemonicPhrase.keyToMnemonic(privateKey);
         const words = phrase.split(/\s+/g);
 
-        // TODO: [low] Reactive animation of each word via initial delay
-
-        // Clear existing words
-        this.clear();
-
         const html = words.map((word, index) => `<div class="x-word">
-            <span class="x-index">${index + 1}</span>
-            <span class="x-word-content" title="word # ${index + 1}">${word}</span>
+            <span id="word${index}" class="x-word-content" title="word # ${index + 1}">${ index + 1 }</span>
         </div>`).reduce((a,b) => a.concat(b));
 
-        // TODO: [low] Replace by document.createElement to avoid risk of injection. OR just activate CSP
         this.$el.innerHTML = html;
+
+        for (let i = 0; i < 24; i++) {
+            this.$(`#word${i}`).addEventListener('click', () => this._showWord(words[i], i));
+            this.$(`#word${i}`).addEventListener('mouseenter', () => this._showWord(words[i], i));
+            this.$(`#word${i}`).addEventListener('mouseleave', () => this._hideWord(i));
+        }
     }
 
-    animateEntry() {
-        this.addStyle('x-entry');
-        setTimeout(() => {
-            this.removeStyle('x-entry')
-        }, 4000);
+    _showWord(word, i) {
+        // check if word is already visible
+        if (this._revealedWord === i) return;
+
+        // reveal content
+        this.$(`#word${ i }`).textContent = word;
+
+        // hide word which was revealed before
+        if (this._revealedWord !== undefined) {
+            this._hideWord(this._revealedWord);
+        }
+
+        this._revealedWord = i;
+    }
+
+    _hideWord(i) {
+        this.$(`#word${ i }`).textContent = i + 1;
+
+        this._revealedWord = undefined;
     }
 }
