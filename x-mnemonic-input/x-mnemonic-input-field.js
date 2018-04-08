@@ -1,32 +1,18 @@
-import XInput from '../x-input/x-input.js';
+import XElement from '/libraries/x-element/x-element.js';
 import AutoComplete from './auto-complete.js';
 import MnemonicPhrase from '/libraries/mnemonic-phrase/mnemonic-phrase.min.js';
 
-export default class XMnemonicInputField extends XInput {
+export default class XMnemonicInputField extends XElement {
 
     html() {
         return `<input type="text" autocorrect="off" autocapitalize="none" spellcheck="false">`;
     }
 
+    onCreate() {
+        this.$input = this.$('input');
+    }
+
     styles() { return ['x-input'] }
-
-    listeners() {
-        return {
-            'keydown input': (_, e) => this.__onValueChanged(e),
-            'blur input': (_, e) => this.__onValueChanged(e),
-            [`${this.__tagName}-valid`]: (detail) => this._onValidEvent(detail)
-        }
-    }
-
-    __onValueChanged(e) {
-        if (!['keydown', 'input', 'blur'].includes(e.type)) return;
-        if (e.keyCode === 32 /* space */ ) e.preventDefault();
-        const triggerKeyCodes = [32 /* space */, 9 /* tab */, 13 /* enter */];
-        if (triggerKeyCodes.includes(e.keyCode) || e.type === 'blur' || (e.type === 'input' && typeof e.data === 'undefined' && e.composed === false)) {
-            if (this.value.length >= 3) this._notifyValidity();
-        }
-        this._onValueChanged();
-    }
 
     setupAutocomplete() {
         this.autocomplete = new AutoComplete({
@@ -43,26 +29,62 @@ export default class XMnemonicInputField extends XInput {
         });
     }
 
-    _validate(value) {
-        const index = MnemonicPhrase.DEFAULT_WORDLIST.indexOf(value.toLowerCase());
-        return index > -1;
+    focus() {
+        requestAnimationFrame(_ => this.$input.focus());
     }
 
-    _onValidEvent(isValid) {
-        this.complete = isValid;
-        if(isValid) this.$el.classList.add('complete');
-        else this._onInvalid();
+    get value() {
+        return this.$input.value;
+    }
+
+    listeners() {
+        return {
+            'keydown input': this._onKeydown.bind(this),
+            'blur input': this._onBlur.bind(this)
+        }
+    }
+
+    _onBlur(_, e) {
+        this._checkValidity();
+    }
+
+    _onKeydown(_, e) {
+        this._onValueChanged();
+
+        if (e.keyCode === 32 /* space */ ) e.preventDefault();
+
+        const triggerKeyCodes = [32 /* space */, 13 /* enter */];
+        if (triggerKeyCodes.includes(e.keyCode)) {
+            this._checkValidity();
+        }
+    }
+
+    _checkValidity() {
+        if (MnemonicPhrase.DEFAULT_WORDLIST.includes(this.value.toLowerCase())) {
+            this.$el.classList.add('complete');
+            this.complete = true;
+            this.fire(this.__tagName + '-valid', this.value);
+        } else {
+            this._onInvalid();
+        }
+    }
+
+    async _onInvalid() {
+        await this.animate('shake');
+        this.$input.value = '';
     }
 
     _onValueChanged() {
-        const value = this.$input.value;
-        if (this._value === value) return;
+        if (this._value === this.value) return;
 
-        if (value.length > 2) this.$input.setAttribute('list', 'x-mnemonic-wordlist');
-        else this.$input.removeAttribute('list');
+        if (this.value.length > 2) {
+             this.$input.setAttribute('list', 'x-mnemonic-wordlist');
+        } else {
+             this.$input.removeAttribute('list');
+        }
 
         this.complete = false;
         this.$el.classList.remove('complete');
-        this._value = value;
+        this._value = this.value;
     }
 }

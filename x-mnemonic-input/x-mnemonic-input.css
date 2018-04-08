@@ -13,16 +13,22 @@ x-mnemonic-input.shake {
     border-color: var(--error-color);
 }
 
-x-mnemonic-input>form {
+x-mnemonic-input > form {
     display: flex;
     flex-wrap: wrap;
     transition: transform 0.8s ease, opacity 0.5s ease;
     will-change: transform, opacity;
 }
 
-x-mnemonic-input-field {
+x-mnemonic-input > form > * {
     flex: 1 0 20%;
     margin: 2px;
+}
+
+x-mnemonic-input .placeholder {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 x-mnemonic-input input[type="text"] {
