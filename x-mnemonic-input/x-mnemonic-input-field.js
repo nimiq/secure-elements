@@ -75,8 +75,9 @@ export default class XMnemonicInputField extends XElement {
     }
 
     async _onInvalid() {
-        await this.animate('shake');
+        // todo await animation before setting empty value and coordinate this with XMnemonicInput._showPlaceholder
         this.$input.value = '';
+        await this.animate('shake');
     }
 
     _onValueChanged() {

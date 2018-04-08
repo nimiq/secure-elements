@@ -106,9 +106,12 @@ export default class XMnemonicInput extends XElement {
     _showPlaceholder({ target }) {
         if (target.classList.contains('has-placeholder')) return;
 
+        // don't hide empty input fields
         const $input = XElement.get(target).$input;
-
         if ($input.value === '') return;
+
+        // don't hide focused input fields
+        if (document.activeElement === $input) return;
 
         target.classList.add('has-placeholder');
 
