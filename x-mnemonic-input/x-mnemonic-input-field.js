@@ -55,15 +55,20 @@ export default class XMnemonicInputField extends XElement {
 
         const triggerKeyCodes = [32 /* space */, 13 /* enter */];
         if (triggerKeyCodes.includes(e.keyCode)) {
-            this._checkValidity();
+            this._checkValidity(true);
         }
     }
 
-    _checkValidity() {
+    _checkValidity(setFocusToNextInput) {
         if (MnemonicPhrase.DEFAULT_WORDLIST.includes(this.value.toLowerCase())) {
             this.$el.classList.add('complete');
             this.complete = true;
             this.fire(this.__tagName + '-valid', this.value);
+
+            if (setFocusToNextInput) {
+                const index = parseInt(this.attributes.dataXId);
+                this.fire('x-set-focus-to-next-input', index + 1);
+            }
         } else {
             this._onInvalid();
         }
