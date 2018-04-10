@@ -96,7 +96,9 @@ export default class XMnemonicInput extends XElement {
     }
 
     _setFocusToNextInput(index) {
-        this.$fields[index].focus();
+        if (index < this.$fields.length) {
+            this.$fields[index].focus();
+        }
     }
 
     _animateError() {
