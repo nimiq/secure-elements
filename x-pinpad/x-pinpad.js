@@ -25,8 +25,8 @@ export default class XPinpad extends XElement {
                 <button>8</button>
                 <button>9</button>
                 <button>0</button>
-            </x-pinpad-container>
-            <x-delete></x-delete>`
+                <x-delete></x-delete>
+            </x-pinpad-container>`
     }
 
     onCreate() {

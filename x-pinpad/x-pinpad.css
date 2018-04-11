@@ -3,6 +3,7 @@ x-pinpad-container {
     display: block;
     touch-action: manipulation;
     user-select: none;
+    position: relative;
 }
 
 x-pinpad-container button {
@@ -63,6 +64,9 @@ x-delete {
     position: absolute;
     margin-left: 92px;
     margin-top: 180px;
+    bottom: 16px;
+    right: 0;
+    right: 24px;
     background-size: cover;
 }
 
