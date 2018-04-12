@@ -3,7 +3,7 @@ import XElement from '/libraries/x-element/x-element.js';
 export default class XPassphraseIndicator extends XElement {
     html() {
         return `
-            <div class="label">Strength: <i class="material-icons">help</i></div>
+            <div class="label">Strength:</div>
             <meter max="130" low="10" optimum="100"></meter>
         `;
     }
