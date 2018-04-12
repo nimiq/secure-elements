@@ -19,8 +19,14 @@ export default class XValidateWords extends XElement {
                 <button class="small"></button>
             </x-wordlist>
             <x-grow></x-grow>
-            <a secondary x-href="/create-safe/words">Back to words</a>
+            <a secondary>Back to words</a>
         `
+    }
+
+    listeners() {
+        return {
+            'click a[secondary]': _ => this.fire('x-validate-words-back')
+        }
     }
 
     set privateKey(privateKey) {
