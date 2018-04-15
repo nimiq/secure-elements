@@ -24,6 +24,10 @@ export default class XMnemonicInputField extends XElement {
                 });
                 response(list);
             },
+            onSelect: () => {
+                const index = parseInt(this.attributes.dataXId);
+                this.fire('x-set-focus-to-next-input', index + 1);
+            },
             minChars: 3,
             delay: 0
         });

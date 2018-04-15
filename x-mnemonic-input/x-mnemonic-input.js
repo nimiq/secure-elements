@@ -25,7 +25,7 @@ export default class XMnemonicInput extends XElement {
             this._createField(i);
         }
 
-        this._datalistSupport = this._hasDatalistSupport();
+        this._datalistSupport = false; // this._hasDatalistSupport();
 
         if (this._datalistSupport) {
             this._createDatalist();
