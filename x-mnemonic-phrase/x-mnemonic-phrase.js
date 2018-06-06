@@ -16,7 +16,7 @@ export default class XMnemonicPhrase extends XElement {
         const words = phrase.split(/\s+/g);
 
         const html = words.map((word, index) =>
-            `${ [0, 8, 16].includes(index) ? `<div class="x-word-section section-${ Math.ceil((index + 1) / 8) }">` : '' }
+            `${ [0, 8, 16].includes(index) ? `<div class="x-word-section section-${ Math.ceil((index + 1) / 8) }" onclick="">` : '' }
                 <div class="x-word">
                     <span class="x-word-placeholder">${ index + 1 }</span>
                     <span class="x-word-content" title="word #${index + 1}">${ word }</span>
