@@ -55,10 +55,10 @@ export default class XMnemonicInputField extends XElement {
     _onKeydown(_, e) {
         this._onValueChanged();
 
-        if (e.keyCode === 32 /* space */ ) e.preventDefault();
-
         const triggerKeyCodes = [32 /* space */, 13 /* enter */];
+
         if (triggerKeyCodes.includes(e.keyCode)) {
+            e.preventDefault();
             this._checkValidity(true);
         }
     }
