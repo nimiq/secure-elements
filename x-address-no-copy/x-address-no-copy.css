@@ -11,7 +11,7 @@ x-address-no-copy, .x-address-no-copy{
     white-space: nowrap;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 480px) {
     x-address-no-copy, .x-address-no-copy {
         font-size: 12px;
         padding: 8px 4px;
